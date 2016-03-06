@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="movieApp">
+
+<head>
+    <title>Movie Stub - Book Movie Tickets Online</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/controller/moviecontroller.js"></script>
+</head>
+
+<body class="container" ng-controller="MovieController">
+<div ng-include="contentHeader"></div>
+<br/>
+<input class="form-control" placeholder="Entry your favorite movie" ng-model="movieName">
+<h1 ng-show="movieName">My favorite movie is {{movieName}}!!</h1>
+
+
+<hr/>
+<h2>searching using filters</h2>
+<div class="row">
+    <div class="col-xs-6">
+        <input type="text" class="form-control"
+               placeholder="Search a move" ng-model="q">
+        <br/>
+        <ul>
+            <li ng-repeat="movie in movies | orderBy:{'name':true} | filter:q">
+                {{movie.id}} - {{movie.name | uppercase }} - {{movie.rating}}
+                <a href="javascript:" ng-click="getMovieById(movie.id)">Avaiable</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<br/>
+<label ng-show="currMovie">Availability for {{currMovie.name | uppercase}}</label>
+</body>
+
+</html>

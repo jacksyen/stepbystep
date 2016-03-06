@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+def buildDate = Calendar.getInstance()
+def time = String.format("%d%02d%02d", buildDate.get(Calendar.YEAR),
+        buildDate.get(Calendar.MONTH) + 1, buildDate.get(Calendar.DAY_OF_MONTH));
+
+//read local.properties file
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "io.hedwig.notester"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.0"
+
+//        manifestPlaceholders = []
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.2.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'joda-time:joda-time:2.9.2'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.pnikosis:materialish-progress:1.7'
+    compile 'com.melnykov:floatingactionbutton:1.3.0'
+    compile 'com.dlazaro66.qrcodereaderview:qrcodereaderview:1.0.0'
+    compile 'org.tautua.markdownpapers:markdownpapers-core:1.4.2'
+
+//    compile project(':umeng-update-sdk')
+//    compile 'com.umeng.analytics:analytics:5.6.4'
+
+}

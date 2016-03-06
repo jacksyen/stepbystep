@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Upload Files</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="main">
+    <h1>upload your images</h1>
+
+    <form method="post" action="upload" enctype="multipart/form-data">
+      <input type="file" name="images" id="images" multiple/>
+      <buton type="submit" id="btn">upload files</buton>
+    </form>
+    <div id="response">
+      <ul id="image-list"></ul>
+    </div>
+  </div>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>

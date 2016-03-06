@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Report</title>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+<body>
+<div id="app">
+    {{ message }}
+    <button v-on:click ="reverseMessage"></button>
+    <ul>
+        <li v-for="log in logs">
+            {{ log.result }}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/logs.js"></script>
+</html>

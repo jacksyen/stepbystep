@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>JQuery and Angular Samples</title>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      var name = $('#name_jquery')
+      var greeting = $('#greeting')
+      name.keyup(function () {
+        greeting.text('Hello ' + name.val() + '!');
+      });
+    });
+  </script>
+</head>
+<body>
+<div ng-app>
+  <label>name:</label>
+  <input type="text" ng-model="name"/>
+
+  <h2>hello {{name}} </h2>
+</div>
+
+<div>
+  <label> jquery name:</label>
+  <input type="text" id="name_jquery"/>
+
+  <h2 id="greeting">hello patrick </h2>
+</div>
+<script src="../bower_components/angular/angular.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="app01.js"></script>
+</head>
+<body ng-init="name='test'">
+<!--<h1>Hello , {{name}}</h1>-->
+
+<!--Say hello to : <input type="text" ng-model="name"/>-->
+<!--<h1>Hello {{name}}</h1>-->
+
+<div ng-app="hello" ng-controller="helloCtrl">
+  Say Hello to : <input type="text" ng-model="$parent.name"/>
+  <h1>Hello {{ name }}</h1>
+</div>
+</body>
+</html>

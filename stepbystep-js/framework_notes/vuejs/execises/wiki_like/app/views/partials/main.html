@@ -1,0 +1,66 @@
+<div ng-include="'partials/navbar'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="home-dui">
+                <a class="home-dui" href="http://dui.dooioo.com/public/demonew/DUI/dui_new.html">
+                    <img class="animate" src="images/dui2.png" width="100%" height="195" alt="DUI"/>
+                    <div class="dui-layer animate">
+                        <i class="home-dui-ui">德佑UI标准规范</i>
+                    </div>
+                </a>
+            </div>
+            <div class="highlight dui-plug-list-wrapper" home-list>
+                <div class="nav-component" nav>
+                    <!--<a href="#nav-1" class="current">Angular组件库</a>
+                    <a href="#nav-2">jQuery组件库</a>-->
+                    <a href="#nav-{{$index}}" ng-class="{'current': $index==0}" ng-repeat="i in docs">{{i.text}}</a>
+                </div>
+                <div class="clearfix" content>
+                    <h2 id="nav-{{$index}}" ng-repeat-start="i in docs">{{i.text}}</h2>
+                    <div class="preview" ng-repeat-end>
+                        <ul class="dui-list clearfix">
+                            <li ng-repeat="d in i.list">
+                                <a ng-href="http://dui.dooioo.com/public/doc/Component/{{d.link}}/{{i.link}}/" target="_blank">
+                                    <img class="animate" ng-src="http://dui.dooioo.com/public/doc/Component/{{d.link}}/{{i.link}}/preview.png" onerror="this.src='images/yeoman.png'">
+                                    <!--<i class="glyphicon glyphicon-search animate"></i>-->
+                                </a>
+                                <h4 class="animate">{{d.text}}</h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="highlight new-articles-wrapper">
+                <h4>
+                    推荐文章
+                </h4>
+                <ul>
+                    <li ng-repeat="a in test">
+                        <a ng-href="/article/{{a._id}}" class="title"> {{a.title}} </a>
+                        <span class="pull-right" style="color: #999">{{a.user.username}} {{a.createdAt | date: 'MM.dd'}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="highlight new-articles-wrapper">
+                <h4>
+                    最新文章
+                    <a href="/category/share" class="pull-right" style="font-size: 14px; font-weight: normal">更多</a>
+                </h4>
+                <ul>
+                    <li ng-repeat="a in articles">
+                        <a ng-href="/article/{{a._id}}" class="title"> {{a.title}} </a>
+                        <span class="pull-right" style="color: #999">{{a.user.username}} {{a.createdAt | date: 'MM.dd'}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <footer>
+        <p>© Dooioo 2014</p>
+    </footer>
+</div>

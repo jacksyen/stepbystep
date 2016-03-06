@@ -1,0 +1,30 @@
+main:
+  - config
+  - domain
+  - repository
+  - service
+  - rest:
+    - controller
+    - dto
+    - exceptions
+  - spi:
+    - dto
+    - exceptions
+  - exceptions
+  - utils
+resources:
+  - config
+test:
+  - config
+  - domain
+  - repository
+  - service
+  - rest:
+    - controller
+    - dto
+    - exception
+  - spi:
+    - dto
+    - exceptions
+  - exceptions
+  - utils

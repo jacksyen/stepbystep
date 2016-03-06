@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ajax jquery</title>
+</head>
+<body>
+<h1>员工查询</h1>
+<label for="employId">请输入员工编号：</label>
+<input type="text" id ="keyword"/>
+<button id="search">查询</button>
+<p id="searchResult"></p>
+
+
+<h1>新建员工</h1>
+<label for="employId">请输入员工编号:</label>
+<input type="text" id="staffNumber">
+<label for="">请选择员工性别:</label><select name="" id="staffSex">
+    <option value="1">男</option>
+    <option value="0">女</option>
+</select>
+<input type="text" id="staffJob"> <br>
+<button id="save">保存</button>
+<p id="createResult"></p>
+
+<script src ="../public/components/jquery/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#search").click(function(){
+        $.ajax({
+            type:"GET",
+            url:"http://127.0.0.1:8000/ajaxdemo/servejsonp.php?number="+$("#keyword").val(),
+            dataType: "jsonp",
+            success:function(data){
+                if(data.success){
+                    $("#serchResult").htm(data.msg);
+                }else{
+                    $("#serchResult").html("出现错误:"+data.msg);
+                }
+            },
+            error:function(jqXHR){
+                alert("发生错误:"+jqXHR.status);
+            }
+        });
+    });
+
+    $("#save").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:8000/ajaxdemo/serverjsonp.php",
+            data: {
+                name: $("#staffName").val(),
+                number: $("#staffNumber").val(),
+                sex: $("#staffSex").val(),
+                job: $("#staffJob").val()
+            },
+            dataType: "json",
+            success: function(data){
+                if (data.success) {
+                    $("#createResult").html(data.msg);
+                } else {
+                    $("#createResult").html("出现错误：" + data.msg);
+                }
+            },
+            error: function(jqXHR){
+                alert("发生错误：" + jqXHR.status);
+            }
+        });
+    });
+
+})
+</script>
+</body>
+</html>

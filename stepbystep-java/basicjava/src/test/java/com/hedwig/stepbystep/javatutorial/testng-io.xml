@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="IO Test" verbose="1" >
+    <listeners>
+        <listener class-name="com.hedwig.stepbystep.javatutorial.testng.listener.RetryListener"></listener>
+    </listeners>
+    <test name ="suite1">
+        <classes>
+            <class name="com.hedwig.stepbystep.javatutorial.io.FileHelperTest">
+            </class>
+        </classes>
+    </test>
+</suite>

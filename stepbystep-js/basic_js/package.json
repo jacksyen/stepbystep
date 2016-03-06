@@ -1,0 +1,18 @@
+{
+  "name": "basic_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "async": "^1.5.0",
+    "benchmark": "^1.0.0",
+    "cluster": "^0.7.7",
+    "step": "0.0.6",
+    "wind": "^0.7.3"
+  }
+}

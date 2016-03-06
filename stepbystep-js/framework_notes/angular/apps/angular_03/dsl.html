@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>use dsl</title>
+</head>
+<body>
+<div ng-controller="nameController">
+  Hello <input ng-model="name"/>
+  <br/>
+  <span ng:bind="name"></span>
+  <br/>
+  <span ng-bind="name"></span>
+  <br/>
+  <span ng-bind="name"></span>
+  <br/>
+  <span data-ng-bind="name"></span> <br/>
+  <span x-ng-bind="name"></span> <br/>
+  <label ng:bind="user.name"></label>
+  <select id="select">
+    <option ng-repeat="opt in user.opts" value="">{{opt}}</option>
+  </select>
+  <hr/>
+</div>
+<script type="text/javascript">
+  function nameController($scope) {
+    $scope.name = 'angular';
+    $scope.user = {
+      name: 'nick name',
+      opts: ['a', 'b', 'c', 'd', 'e']
+    };
+
+  }
+</script>
+
+</body>
+</html>

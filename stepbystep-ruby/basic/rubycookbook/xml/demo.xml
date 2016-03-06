@@ -1,0 +1,17 @@
+<classes language ="ruby">
+  <class name ="Numberic">
+    Numberic represents all numbers
+    <class name ="Float">
+      Floating point number have a fractiona nd a mantissa.
+    </class>
+    <class name="Integer">
+      Integers contains exact integral values
+      <class name="Fixnum">
+        Fixnums are stored as machine ints
+      </class>
+      <class name="BigNum">
+        Bignums store arbitraty-size integers.
+      </class>
+    </class>
+  </class>
+</classes>

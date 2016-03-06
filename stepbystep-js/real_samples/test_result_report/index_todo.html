@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Report</title>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+<body>
+<div id="todo">
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo"/>
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{ todo.text }}</span>
+            <button v-on:click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/todos.js"></script>
+</html>

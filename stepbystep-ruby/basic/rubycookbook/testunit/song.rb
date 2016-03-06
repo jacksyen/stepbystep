@@ -1,0 +1,1 @@
+Song = Struct.new(:title,:artist)

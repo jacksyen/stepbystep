@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td>user name</td>
+    <td>sex</td>
+    <td>email</td>
+    <td>operation</td></tr>
+  <tr ng-repeat="user in users">
+    <td>{{user.username}}</td>
+    <td>{{user.gender}}</td>
+    <td>{{user.email}}</td>
+    <td>
+      <a href="#update/{{user.id}}/20"> modify</a>
+      <a href="javascript.void(0)">delete</a>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <script src="js/instrument-xhr.js"></script>
+</head>
+<body>
+<script>
+    instrumentXHR();
+
+    function load(url) {
+        var req;
+
+        req = new XMLHttpRequest();
+        req.open("GET", url, true);
+
+        req.timeout = 5000;
+        req.addEventListener("loadend", function() {
+            console.log(req.performance);
+        }, false);
+
+        req.send();
+    }
+
+    load("instrument-xhr-test.html");
+    load("broken-url");
+    load("http://www.broken-domain.broken/");
+    load("http://blackhole.webpagetest.org/");
+</script>
+</body>
+</html>

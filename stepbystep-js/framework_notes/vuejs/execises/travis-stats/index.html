@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travis Status</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<h1>Travis CI build stats</h1>
+
+<form>
+    <label>Repository:</label>
+    <input type="text" id="repo-name" placeholder="owner/repo"/>
+    <input class="button" type="submit" value="render"/>
+</form>
+<div class="column">
+    <h2>Build durations (in minutes)</h2>
+
+    <h3>duration = sum of job run times</h3>
+
+    <div id="build-times-duration"></div>
+</div>
+
+<div class="column">
+    <h2>Build wall times (in minutes)</h2>
+
+    <h3>wall time = finished_at - started_at</h3>
+
+    <div id="build-times"></div>
+</div>
+
+<div class="column">
+    <h2>Builds per day</h2>
+
+    <div id="build-counts"></div>
+</div>
+
+<script src="../node_modules/d3/d3.min.js"></script>
+<script src="app.js"></script>
+
+</div>
+</body>
+</html>

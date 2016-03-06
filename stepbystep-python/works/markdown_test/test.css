@@ -1,0 +1,93 @@
+body {
+	font-family: 'arial', sans-serif;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+h1 {
+	color: #444;
+	border-bottom: 1px dotted #aaa;
+	font-weight: normal;
+	margin: 32px 0 0;
+}
+
+h2 {
+	color: #444;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+body > ul {
+	-moz-column-width: 300px;
+	column-width: 300px;
+	-moz-column-gap: 16px;
+	column-gap: 16px;
+	display: block;
+}
+
+body li {
+	vertical-align: top;
+}
+
+body li > .result {
+	display: inline-block;
+	font-size:60%;
+	padding: 4px;
+	vertical-align: top;
+	width: 140px;
+}
+
+body li > .result > .status {
+	background-color: #aaa;
+	border-radius: 100%;
+	display: inline-block;
+	margin: 0 4px;
+	height: 12px;
+	width: 12px;
+}
+
+body li > .result > .status.success {
+	background-color: green;
+}
+
+body li > .result > .status.fail {
+	background-color: red;
+}
+
+body li > .result > button {
+	background-color: #ddd;
+	border: none;
+	border-radius: 0;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	font-size: 8pt;
+	margin: 0 2px;
+}
+
+body > ul > li {
+	background-color: #eee;
+	border-radius: 8px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #777;
+	display: inline-block;
+	font-size: 120%;
+	margin: 8px;
+	padding: 8px;
+	width: 100%;
+	vertical-align: top;
+}
+
+body > ul > li > ul {
+	font-weight: normal;
+	margin: 4px 0;
+	vertical-align: top;
+}
+
+body > ul > li > ul > li {
+	font-size: 80%;
+}
+
+body > ul > li > ul li {
+	color: #444;
+	margin: 4px 0;
+}

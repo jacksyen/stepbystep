@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Learning Ajax</title>
+</head>
+
+<body>
+<h1>员工查询</h1>
+<label for="employId">请输入员工编号：</label>
+<input type="text" id ="keyword"/>
+<button id="search">查询</button>
+<p id="searchResult"></p>
+
+
+<h1>新建员工</h1>
+<label for="employId">请输入员工编号:</label>
+<input type="text" id="staffNumber">
+<label for="">请选择员工性别:</label><select name="" id="staffSex">
+	<option value="1">男</option>
+	<option value="0">女</option>
+</select>
+<input type="text" id="staffJob"> <br>`
+<button id="save">保存</button>
+<p id="createResult"></p>
+
+<script>
+	document.getElementById('search').onclick=function(){
+		var request =new XMLHttpRequest();
+		request.open("GET","sever.php?number="+document.getElementId("keyword").value);
+        request.send();
+        request.onreadystatechange=function(){
+            if(request.readyState===4){
+                if(request.status===200){
+                    document.getElementById("searchResult").innerHTML=request.responseText;
+                }else{
+                    alert("发生错误："+request.satus);
+                }
+            }
+        }
+	}
+
+    document.getElementById("save").onclick =function(){
+        var request =new XMLHttpRequest();
+        request.open("POST","sever.php");
+        request.send();
+        var data="name="+document.getElementById("staffName").valueOf()+
+                        "&number="+document.getElementById("staffNumber")+
+                        "&sex="+document.getElementById("staffSex")+
+                        "&job="+document.getElementById("staffJob");
+        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        request.send(data);
+        request.onreadystatechange=function(){
+            if(request.readyState===4){
+                if(request.status===200){
+                    document.getElementById("createResult").innerHTML=request.responseText;
+                }else{
+                    alert("发生错误："+request.satus);
+                }
+            }
+
+        }
+
+    }
+</script>
+</body>
+</html>

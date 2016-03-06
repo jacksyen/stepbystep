@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown editor</title>
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="../node_modules/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="editor.css"/>
+</head>
+<body>
+<div id="editor">
+    <textarea v-model="input" debounce="300"></textarea>
+    <div v-html="input | marked"></div>
+</div>
+<script src="editor.js"></script>
+</body>
+</html>

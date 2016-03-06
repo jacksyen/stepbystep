@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div</title>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <a class="btn btn-navbar"
+           data-toggle="'collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        <a href="/" class="brand">MicroBlog</a>
+
+        <div class="nav-collapse">
+            <ul class="nav">
+                <li class="active">
+                    <a href="/">Home Page</a>
+                </li>
+                <% if(!user) { %>
+                <li><a href="/login">login</a></li>
+                <li><a href="/reg">sign</a></li>
+                %>
+                }else{
+                %>
+                <li><a href="/logout">logout</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="container" class="container">
+    <% if(success) {%>
+        <div class="alert alert-success">
+            <%=success %>
+        </div>
+    <% }%>
+    <%if (error){%>
+        <div class="alert alert-error">
+            <%=error%>
+        </div>
+    <%}%>
+    <%-body%>
+    <hr/>
+    <footer>
+        <p><a href="/">this is a micro service</a></p>
+    </footer>
+</div>
+</body>
+<script src="../public/js/jquery.js"></script>
+<script src="../public/js/bootstrap.js"></script>
+</html>

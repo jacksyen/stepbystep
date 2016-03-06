@@ -1,0 +1,14 @@
+<% if (!user) {%>
+<div class="hero-unit">
+    <h1>welcome to Microblog</h1>
+    <p>this is a blog based on nodejs</p>
+    <a href="/login" class="btn btn-primary btn-large">login</a>
+    <a href="/reg" class="btn btn-large">sign</a>
+</div>
+
+<%}
+else {%>
+    <%- partial('say')%>
+<%}%>
+
+<%- partial('posts',{posts:posts})%>

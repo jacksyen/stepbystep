@@ -1,0 +1,84 @@
+doctype html
+head
+    title #{cnName}的个人简历
+    meta(charset='utf-8')
+    link(rel="shortcut icon", href=favicon, type="image/png")
+    link(rel="stylesheet", href="bower_components/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="bower_components/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet", href="style/main.css")
+    script(type="text/javascript", src="bower_components/jquery/dist/jquery.min.js")
+    script(type="text/javascript", src="bower_components/eventEmitter/EventEmitter.min.js")
+    script(type="text/javascript", src="bower_components/eventie/eventie.js")
+    script(type="text/javascript", src="bower_components/imagesloaded/imagesloaded.js")
+    script(type="text/javascript", src="script/modernizr.min.js")
+    script(type="text/javascript", src="script/main.js")
+        body
+    a(href=code, target='_blank')
+        img(style='position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;', src='http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png', alt='Fork me on GitHub')
+            .banner(style="background-image: url(" + bg + ")")
+        img.avatar(src=avatar, alt=enName)
+        h1.text-center.name= enName
+        p.text-center.slogan= motto
+        .container.content
+        ul.contacts.list-inline.text-center
+    each contact in contacts
+        li
+            -var target = contact.external ? '_blank' : '_self'
+            a(href=contact.link, target=target, title=contact.title)
+                img(src=contact.image, alt=contact.title)
+                    p.intro= desc
+                    h2.text-center 求职意向
+        .row.expectation
+            .col-xs-6
+                img(src=cityImage, class='map img-responsive')
+            .col-xs-6
+                ul
+            each e in expectations
+                li= e
+                h2.text-center 作品
+        .project-wap
+            img.loader(src='image/ajax-loader.gif', alt='Loader')
+    each p in projects
+        .project.thumbnail
+            a(href=p.link, title=p.title, target='_blank')
+                img.img-responsive(src=p.image, alt=p.title)
+            .caption
+                h3
+                    a(href=p.link, target='_blank')= p.title
+                p.desc= p.desc
+                p.stack= p.stack
+                .icon-wap
+                    if p.ios
+                        a.icon.ios(href=p.ios, target='_blank')
+                            i.fa.fa-mobile
+                    if p.source
+                        a.icon.source(href=p.source, target='_blank')
+                            i.fa.fa-github
+                                h2.text-center 技能
+        .row
+            .col-xs-10.col-xs-offset-1
+                .row
+            each skill in skills
+                .col-xs-6.skill
+                    h3= skill.name
+                    .progress
+                        .progress-bar.progress-bar-info(style='width: ' + skill.degree + '%')
+                            h2.text-center 阅读
+        .row.books
+    each book, index in books
+        -var cls = (index === 0) ? 'col-xs-2 col-xs-offset-1' : 'col-xs-2'
+        div(class=cls)
+            a(href=book.link, target='_blank', class='book')
+                img.img-responsive(src=book.image, alt=book.title)
+                div.quote= book.quote
+                h2.text-center 教育
+        .edu-item-wap
+    each edu in educations
+        .row.edu-item
+            .col-xs-5.text-right.time= edu.period
+            .col-xs-7= edu.title
+            .footer
+        .container
+            .version Last update: #{updateTime}
+            .copyright #{currentYear} © by #{enName}
+                                       

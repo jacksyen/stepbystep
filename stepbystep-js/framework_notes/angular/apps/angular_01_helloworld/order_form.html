@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Order Form</title>
+</head>
+<body>
+<div ng-app>
+    <label>name:</label>
+    <input type="text" ng-model="name"/>
+
+    <h2>hello {{name}} </h2>
+</div>
+
+<div>
+    <label> jquery name:</label>
+    <input type="text" id="name_jquery"/>
+    <h2 id="greeting">hello patrick </h2>
+</div>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script>
+    function CarController($scope){
+        $scope.items = [
+            {title: 'Paint pots', quantity: 8, price: 3.95},
+            {title: 'Polka dots', quantity: 17, price: 12.95},
+            {title: 'Pebbles', quantity: 5, price: 6.95}
+        ];
+        $scope.remove=function(index){
+            $scope.items.splice(index,1);
+        }
+    };
+</script>
+</body>
+</html>
+
